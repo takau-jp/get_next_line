@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:50:33 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/05 15:47:46 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/09 02:07:31 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (!s)
+		return (NULL);
 	while (true)
 	{
 		if (*s == (char)c)
@@ -37,6 +39,7 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	ft_strcat(tmp, s1);
 	free(s1);
 	ft_strcat(tmp, s2);
+	free(s2);
 	return (tmp);
 }
 
@@ -63,4 +66,22 @@ size_t	ft_strlen(const char *str)
 	while (str[len])
 		len++;
 	return (len);
+}
+
+char	*ft_strndup(char const *s1, size_t n)
+{
+	char	*dst;
+	size_t	i;
+
+	dst = (char *)malloc(sizeof(char) * (n + 1));
+	if (!dst)
+		return (NULL);
+	i = 0;
+	while (i < n && s1[i])
+	{
+		dst[i] = s1[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
