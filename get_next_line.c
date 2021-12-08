@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:54:16 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/09 02:13:24 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/09 02:16:47 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE < 0)
-		return (NULL);
+		return (free_mem(&mem));
 	if (!mem)
 	{
 		mem = ft_strndup("", 1);
