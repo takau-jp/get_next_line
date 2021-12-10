@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:54:16 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/10 11:51:17 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/10 17:50:41 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*get_next_line(int fd)
 	static char	*mem;
 	char		*line;
 
-	if (fd < 0 || ULIMIT_FILE_DESCRIPTORS <= fd || BUFFER_SIZE < 0)
+	if (fd < 0 || ULIMIT_FILE_DESCRIPTORS <= fd \
+	|| BUFFER_SIZE < 0 || INT_MAX < (size_t)BUFFER_SIZE)
 		return (NULL);
 	if (!mem)
 	{

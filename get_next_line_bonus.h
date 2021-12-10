@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 20:18:25 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/10 12:08:41 by stanaka          ###   ########.fr       */
+/*   Updated: 2021/12/10 17:47:55 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdbool.h>
+# include <limits.h>
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
