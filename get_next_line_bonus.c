@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:54:16 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/10 09:02:14 by stanaka          ###   ########.fr       */
+/*   Created: 2021/12/09 22:18:05 by stanaka           #+#    #+#             */
+/*   Updated: 2021/12/10 08:55:05 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_file(int fd, char *mem);
 char	*free_mem(char **mem);
@@ -19,25 +19,25 @@ char	*get_remainder_line(char *mem);
 
 char	*get_next_line(int fd)
 {
-	static char	*mem;
+	static char	*mem[ULIMIT_FILE_DESCRIPTORS];
 	char		*line;
 
 	if (fd < 0 || ULIMIT_FILE_DESCRIPTORS <= fd || BUFFER_SIZE < 0)
 		return (NULL);
-	if (!mem)
+	if (!mem[fd])
 	{
-		mem = ft_strndup("", 1);
-		if (!mem)
+		mem[fd] = ft_strndup("", 1);
+		if (!mem[fd])
 			return (NULL);
 	}
-	mem = read_file(fd, mem);
-	if (!mem)
+	mem[fd] = read_file(fd, mem[fd]);
+	if (!mem[fd])
 		return (NULL);
-	line = get_line(mem);
+	line = get_line(mem[fd]);
 	if (!line)
-		return (free_mem(&mem));
-	mem = get_remainder_line(mem);
-	if (!mem)
+		return (free_mem(&mem[fd]));
+	mem[fd] = get_remainder_line(mem[fd]);
+	if (!mem[fd])
 	{
 		free(line);
 		return (NULL);
