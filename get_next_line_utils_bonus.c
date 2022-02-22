@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:17:19 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/10 12:08:52 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/02/20 19:35:51 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	s2_len = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!str)
+	{
+		free(s1);
 		return (NULL);
+	}
 	ft_memcpy(str, s1, s1_len);
 	ft_memcpy(str + s1_len, s2, s2_len);
 	str[s1_len + s2_len] = '\0';

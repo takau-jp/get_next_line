@@ -6,7 +6,7 @@
 /*   By: stanaka < stanaka@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 20:18:25 by stanaka           #+#    #+#             */
-/*   Updated: 2021/12/10 17:47:55 by stanaka          ###   ########.fr       */
+/*   Updated: 2022/02/21 14:51:20 by stanaka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 256
 # endif
 
 # define ULIMIT_FILE_DESCRIPTORS 256
